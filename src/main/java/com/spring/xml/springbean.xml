@@ -43,6 +43,12 @@
     			<ref bean="songhi" />
     		</list>
     	</property>
+    	<property name="mapsong" >
+    		<map>	<!-- 装配到map类型 -->
+    			<entry key="GO" value-ref="songgo" />
+    			<entry key="HI" value-ref="songhi" />
+    		</map>
+    	</property>
     </bean>
       
 </beans>
