@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc 
+	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/mvc  
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+        
+
+	<bean id="song" class="com.spring.cla.OneSong" ></bean>
+        
+    <bean id="person" class="com.spring.cla.OnePerson" 
+    	init-method="initSing">		<!-- init-method：初始化Bean时候的操作 -->
+    	<constructor-arg value="16"	/>
+    	<constructor-arg ref="song" />
+    </bean> 
+    
+    <bean id="singleperson" class="com.spring.cla.SinglePerson" 
+    	factory-method="getInstance">	<!-- 调用该静态方法来创建一个类的实例 -->
+    </bean>
+    
+    <bean id="twoperson" class="com.spring.cla.TwoPerson" >
+    	<property name="age" value="12" />	<!-- property：通过set方法将参数注入(Bean的话用ref) -->
+    	<property name="sbom" >
+    		<bean class="com.spring.cla.SongBom" />	<!-- 内部Bean装载到set方法 -->
+    	</property>
+    </bean>
+    
+    
+    <bean id="songgo" class="com.spring.allsong.SongGo" />
+    <bean id="songhi" class="com.spring.allsong.SongHi" />
+    
+    <bean id="songmore" class="com.spring.cla.SongMore" >
+    	<property name="colsong" >		<!-- 通过set方法注入参数 -->
+    		<list>		<!-- 装配集合类型 -->
+    			<ref bean="songgo" />
+    			<ref bean="songhi" />
+    		</list>
+    	</property>
+    </bean>
+      
+</beans>
