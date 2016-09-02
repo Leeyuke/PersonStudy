@@ -4,4 +4,4 @@ def hw(n):
     else :
         return n*hw(n-1)
 
-print hw(4);
+print hw(10);
