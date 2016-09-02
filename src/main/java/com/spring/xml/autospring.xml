@@ -12,7 +12,10 @@
 	http://www.springframework.org/schema/mvc  
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
         
-	<context:component-scan  base-package="com.spring.auto" />
+	<context:component-scan  base-package="com.spring.auto" >
+		<context:include-filter type="assignable" 
+			expression="com.spring.auto.interf.Song" /> 
+ 	</context:component-scan>
 
 	<bean id="sbom" class="com.spring.cla.SongBom"></bean>
 	<bean id="twoperson" class="com.spring.cla.TwoPerson" autowire="byName">

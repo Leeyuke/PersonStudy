@@ -1,10 +1,7 @@
 package com.spring.auto.cla;
 
-import org.springframework.stereotype.Component;
-
 import com.spring.auto.interf.Song;
 
-@Component
 public class OneSong implements Song {
 
 	public void SingSong() {
