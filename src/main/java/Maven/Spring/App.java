@@ -29,8 +29,9 @@ public class App {
 		
 		System.out.println("\nNow this is song more ......\n");
 		SongMore songmore = (SongMore) atx.getBean("songmore");
-		songmore.getSong();
+		songmore.getListSong();	
 		songmore.getMapSong();
+		songmore.getMapString();
 		
 	}
 }

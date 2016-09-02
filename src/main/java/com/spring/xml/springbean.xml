@@ -37,17 +37,24 @@
     <bean id="songhi" class="com.spring.allsong.SongHi" />
     
     <bean id="songmore" class="com.spring.cla.SongMore" >
-    	<property name="colsong" >		<!-- 通过set方法注入参数 -->
-    		<list>		<!-- 装配集合类型 -->
+    	<property name="colsong" >		<!-- name的值为对应的变量名 --> <!-- 通过set方法注入参数 -->
+    		<list>						<!-- 装配集合类型 -->
     			<ref bean="songgo" />
     			<ref bean="songhi" />
     		</list>
     	</property>
-    	<property name="mapsong" >
-    		<map>	<!-- 装配到map类型 -->
+    	<property name="mapsong" >	<!-- name的值为对应的变量名 --> <!-- 通过set方法注入参数 -->
+    		<map>					<!-- 装配到map类型 --> 
     			<entry key="GO" value-ref="songgo" />
     			<entry key="HI" value-ref="songhi" />
     		</map>
+    	</property>
+    	<property name="mapstring" >  <!-- name的值为对应的变量名 --> <!-- 通过set方法注入参数 -->
+    		<props>					  <!-- 装配到properties类型 -->
+    			<prop key="MapStringKey1">This is yuke!</prop>
+    			<prop key="MapStringKey2">This prop's value only String!</prop>
+    			<prop key="MapStringKey3">This also a map!</prop>
+    		</props>
     	</property>
     </bean>
       
